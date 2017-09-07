@@ -23,32 +23,31 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     """Amount allocated to each player"""
-    endowment = 75
+    endowment = 340
     efficiency_factor = 2
 
-    # tokens for guessing correctly
-    guess_correct = 175
+    #  for guessing correctly
+    guess_correct = 50
 
     GUESS_CHOICE = {
         1: [0],
-        2: [list(range(1, 241))],
-        3: [list(range(241, 481))],
-        4: [list(range(481, 721))],
-        5: [list(range(721, 961))],
-        6: [list(range(961, 1200))],
-        7: [1200],
+        2: [list(range(1, 71))],
+        3: [list(range(71, 141))],
+        4: [list(range(141, 211))],
+        5: [list(range(211, 276))],
+        6: [list(range(276, 344))],
+        7: [345],
     }
 
     GUESS_CHOICES = [
-        ("1", "0 tokens"),
-        ("2", "1 - 240 tokens"),
-        ("3", "241 - 480 tokens"),
-        ("4", "481 - 720 tokens"),
-        ("5", "721 - 960 tokens"),
-        ("6", "961 - 1199 tokens"),
-        ("7", "1200 tokens"),
+        ("1", "KSH 0"),
+        ("2", "KSH 1 - KSH 70"),
+        ("3", "KSH 71 - KSH 140"),
+        ("4", "KSH 141 - KSH 210"),
+        ("5", "KSH 211 - KSH 275"),
+        ("6", "KSH 276 - KSH 344"),
+        ("7", "KSH 345"),
     ]
-
 
 
 class Subsession(BaseSubsession):
@@ -80,7 +79,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-
     contribution = models.IntegerField(
         min=0, max=Constants.endowment,
         doc="""The amount contributed by the player""",
@@ -94,6 +92,5 @@ class Player(BasePlayer):
     def guess_correct(self):
         guess_choices = Constants.GUESS_CHOICE
         px, py = self.get_others_in_group()
-        return px.contribution in guess_choices[int(self.guess_one)] and py.contribution in guess_choices[int(self.guess_two)]
-
-
+        return px.contribution in guess_choices[int(self.guess_one)] and py.contribution in guess_choices[
+            int(self.guess_two)]

@@ -28,32 +28,6 @@ class ShuffleWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
         self.subsession.group_randomly()
-        # # sort players by amount sent
-        # sorted_players = sorted(
-        #     self.subsession.get_players(),
-        #     key=lambda player: player.sent_amount
-        # )
-        #
-        # if len(sorted_players) == 3:
-        #     pass
-        # else:
-        #     # assuming 6, 12, 0r 18 players
-        #     median_sort = len(sorted_players) / 2
-        #     for i in sorted_players:
-        #         if sorted_players.index(i) > median_sort:
-        #             i.participant.vars["ranked"] = "high"
-        #         else:
-        #             i.participant.vars["ranked"] = "low"
-        #
-        # # chunk players into groups
-        # group_matrix = []
-        # ppg = Constants.players_per_group
-        # for i in range(0, len(sorted_players), ppg):
-        #     group_matrix.append(sorted_players[i:i+ppg])
-        #
-        # # set new groups
-        # self.subsession.set_group_matrix(group_matrix)
-
 
 class SendBack(Page):
     # both players are player 2

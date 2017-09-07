@@ -38,6 +38,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    # all the logic is made to the other player from the decision making player.
     def computer_destroyed_points(self):
         choice = random.choice([0, 1])
         if choice == 0:

@@ -10,6 +10,7 @@ from otree import widgets
 from otree.common import Currency as c, currency_range, safe_json
 from otree.constants import BaseConstants
 from otree.models import BaseSubsession, BaseGroup, BasePlayer
+
 # </standard imports>
 
 author = 'Benson'
@@ -31,7 +32,6 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-
     def make_random_toss_one(self):
         for p in self.get_players():
             p.random_coin_toss_one = random.choice(["Heads", "Tails"])
@@ -39,7 +39,6 @@ class Group(BaseGroup):
     def make_random_toss_two(self):
         for p in self.get_players():
             p.random_coin_toss_two = random.choice(["Heads", "Tails"])
-
 
     def decision_one_payoff(self):
         points = 0
@@ -49,56 +48,52 @@ class Group(BaseGroup):
                     p.payoff = 0
                     points = 0
                 else:
-                    p.payoff = 2880
-                    points = 2880
+                    p.payoff = 820
+                    points = 820
 
             elif p.decision_one == "Coin 2":
+                if p.random_coin_toss_one == "Heads":
+                    p.payoff = 70
+                    points = 70
+                else:
+                    p.payoff = 350
+                    points = 350
+
+            elif p.decision_one == "Coin 3":
+                if p.random_coin_toss_one == "Heads":
+                    p.payoff = 140
+                    points = 140
+                else:
+                    p.payoff = 550
+                    points = 550
+
+            elif p.decision_one == "Coin 4":
+                if p.random_coin_toss_one == "Heads":
+                    p.payoff = 210
+                    points = 210
+                else:
+                    p.payoff = 410
+                    points = 410
+
+            elif p.decision_one == "Coin 5":
                 if p.random_coin_toss_one == "Heads":
                     p.payoff = 240
                     points = 240
                 else:
-                    p.payoff = 2400
-                    points = 2400
-
-            elif p.decision_one == "Coin 3":
-                if p.random_coin_toss_one == "Heads":
-                    p.payoff = 480
-                    points = 480
-                else:
-                    p.payoff = 1920
-                    points = 1920
-
-            elif p.decision_one == "Coin 4":
-                if p.random_coin_toss_one == "Heads":
-                    p.payoff = 720
-                    points = 720
-                else:
-                    p.payoff = 1440
-                    points = 1440
-
-            elif p.decision_one == "Coin 5":
-                if p.random_coin_toss_one == "Heads":
-                    p.payoff = 840
-                    points = 840
-                else:
-                    p.payoff = 1200
-                    points = 1200
+                    p.payoff = 340
+                    points = 340
 
             elif p.decision_one == "Coin 6":
-                if p.random_coin_toss_one == "Heads":
-                    p.payoff = 960
-                    points = 960
-                else:
-                    p.payoff = 960
-                    points = 960
+                p.payoff = 275
+                points = 275
 
             elif p.decision_one == "Coin 7":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 1080
-                    points = 1080
+                    p.payoff = 310
+                    points = 310
                 else:
-                    p.payoff = 720
-                    points = 720
+                    p.payoff = 210
+                    points = 210
 
             p.participant.vars["game_payoff"]["risk_game"] = points
             p.participant.vars["carrying_payoff"] += points
@@ -112,81 +107,77 @@ class Group(BaseGroup):
                     p.payoff = 0
                     points = 0
                 else:
-                    p.payoff = 2160
-                    points = 2160
+                    p.payoff = 620
+                    points = 620
 
             elif p.decision_two == "Coin 2":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 240
-                    points = 240
+                    p.payoff = 70
+                    points = 70
                 else:
-                    p.payoff = 1920
-                    points = 1920
+                    p.payoff = 550
+                    points = 550
 
             elif p.decision_two == "Coin 3":
                 if p.random_coin_toss_two == "Heads":
+                    p.payoff = 140
+                    points = 140
+                else:
                     p.payoff = 480
                     points = 480
-                else:
-                    p.payoff = 1680
-                    points = 1680
 
             elif p.decision_two == "Coin 4":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 720
-                    points = 720
+                    p.payoff = 210
+                    points = 210
                 else:
-                    p.payoff = 1440
-                    points = 1440
+                    p.payoff = 410
+                    points = 410
 
             elif p.decision_two == "Coin 5":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 960
-                    points = 960
+                    p.payoff = 275
+                    points = 275
                 else:
-                    p.payoff = 1200
-                    points = 1200
+                    p.payoff = 340
+                    points = 340
 
             elif p.decision_two == "Coin 6":
-                p.payoff = 1080
-                points = 1080
+                p.payoff = 310
+                points = 310
 
             elif p.decision_two == "Coin 7":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 1200
-                    points = 1200
+                    p.payoff = 340
+                    points = 340
                 else:
-                    p.payoff = 960
-                    points = 960
+                    p.payoff = 275
+                    points = 275
 
             p.participant.vars["game_payoff"]["risk_game"] += points
             p.participant.vars["carrying_payoff"] += points
             p.risk_games_points = points
 
 
-
 class Player(BasePlayer):
-
-
-
     CHOICE_ONE = (
-        ("Coin 1", "Coin 1: 0 Tokens if heads and 2880 Tokens if tails"),
-        ("Coin 2", "Coin 2: 240 Tokens if heads and 2400 Tokens if tails"),
-        ("Coin 3", "Coin 3: 480 Tokens if heads and 1920 Tokens if tails"),
-        ("Coin 4", "Coin 4: 720 Tokens if heads and 1440 Tokens if tails"),
-        ("Coin 5", "Coin 5: 840 Tokens if heads and 1200 Tokens if tails"),
-        ("Coin 6", "Coin 6: 960 Tokens if heads and 960 Tokens if tails"),
-        ("Coin 7", "Coin 6: 1080 Tokens if heads and 720 Tokens if tails"),
+        ("Coin 1", "Coin 1: KSH 0 if heads and KSH 820 if tails"),
+        ("Coin 2", "Coin 2: KSH 70  if heads and KSH 350 if tails"),
+        ("Coin 3", "Coin 3: KSH 140 if heads and KSH 550 if tails"),
+        ("Coin 4", "Coin 4: KSH 210 if heads and KSH 410 if tails"),
+        ("Coin 5", "Coin 5: KSH 240 if heads and KSH 340 if tails"),
+        ("Coin 6", "Coin 6: KSH 275 if heads and KSH 275 if tails"),
+        ("Coin 7", "Coin 6: KSH 310 if heads and KSH 210 if tails"),
     )
 
     CHOICE_TWO = (
-        ("Coin 1", "Coin 1: 0 tokens if heads and 2160 tokens if tails"),
-        ("Coin 2", "Coin 2: 240 tokens if heads and 1920 tokens if tails"),
-        ("Coin 3", "Coin 3: 480 tokens if heads and 1680 tokens if tails"),
-        ("Coin 4", "Coin 4: 720 tokens if heads and 1440 tokens if tails"),
-        ("Coin 5", "Coin 5: 960 tokens if heads and 1200 tokens if tails"),
-        ("Coin 6", "Coin 6: 1080 tokens if heads and 1080 tokens if tails"),
-        ("Coin 7", "Coin 7: 1200 tokens if heads and 960 tokens if tails"),
+        ("Coin 1", "Coin 1: KSH 0 if heads and KSH 620 if tails"),
+        ("Coin 2", "Coin 2: KSH 70 if heads and KSH 550 if tails"),
+        ("Coin 3", "Coin 3: KSH 140  if heads and KSH 480 if tails"),
+        ("Coin 4", "Coin 4: KSH 210 if heads and KSH 410 if tails"),
+        ("Coin 5", "Coin 5: KSH 275 if heads and KSH 340 if tails"),
+        ("Coin 6", "Coin 6: KSH 310 if heads and KSH 310 if tails"),
+        ("Coin 7", "Coin 7: KSH 340 if heads and KSH 275 if tails"),
     )
 
     decision_one = models.CharField(choices=CHOICE_ONE, widget=widgets.RadioSelect())

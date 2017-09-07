@@ -11,6 +11,7 @@ from .models import Constants
 class ScreenOne(Page):
     pass
 
+
 class DecideOne(Page):
     form_model = models.Player
     form_fields = ['decision_one']
@@ -18,8 +19,10 @@ class DecideOne(Page):
     def before_next_page(self):
         self.group.make_random_toss_one()
 
+
 class ScreenTwo(Page):
     pass
+
 
 class DecideTwo(Page):
     form_model = models.Player
@@ -28,8 +31,8 @@ class DecideTwo(Page):
     def before_next_page(self):
         self.group.make_random_toss_two()
 
-class ResultsWaitPage(WaitPage):
 
+class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.group.decision_one_payoff()
         self.group.decision_two_payoff()

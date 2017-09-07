@@ -21,6 +21,7 @@ class PaymentInfo(Page):
             'vouchers': participant.vars["vouchers"]
         }
 
+
 def payoffs(game_obj):
     games = game_obj.keys()
     games = random.sample(games, 3)

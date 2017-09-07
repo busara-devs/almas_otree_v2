@@ -37,10 +37,10 @@ class Group(BaseGroup):
         p2 = self.get_player_by_id(2)
         if p1.participant.vars["rank"] == "high":
             p1.payoff = p1.keep
-            p2.payoff = 2400 - p1.keep
+            p2.payoff = 1400 - p1.keep
 
             points_p1 = p1.keep
-            points_p2 = 2400 - p1.keep
+            points_p2 = 1400 - p1.keep
 
             p1.participant.vars["game_payoff"]["dictator"] = points_p1
             p2.participant.vars["game_payoff"]["dictator"] = points_p2
@@ -50,25 +50,24 @@ class Group(BaseGroup):
 
         elif p1.participant.vars["rank"] == "low":
             p1.payoff = p1.keep
-            p2.payoff = 1200 - p1.keep
+            p2.payoff = 700 - p1.keep
 
             points_p1 = p1.keep
-            points_p2 = 1200 - p1.keep
+            points_p2 = 700 - p1.keep
             p1.participant.vars["game_payoff"]["dictator"] = points_p1
             p2.participant.vars["game_payoff"]["dictator"] = points_p2
 
             p1.participant.vars["carrying_payoff"] = points_p1
             p2.participant.vars["carrying_payoff"] = points_p2
 
-
     def player_two_decides(self):
         p1 = self.get_player_by_id(1)
         p2 = self.get_player_by_id(2)
         if p2.participant.vars["rank"] == "high":
             p2.payoff = p2.keep
-            p1.payoff = 2400 - p2.keep
+            p1.payoff = 1400 - p2.keep
 
-            points_p1 = 2400 - p2.keep
+            points_p1 = 1400 - p2.keep
             points_p2 = p2.keep
 
             p1.participant.vars["game_payoff"]["dictator"] = points_p1
@@ -82,9 +81,9 @@ class Group(BaseGroup):
 
         elif p2.participant.vars["rank"] == "low":
             p2.payoff = p2.keep
-            p1.payoff = 1200 - p2.keep
+            p1.payoff = 700 - p2.keep
 
-            points_p1 = 1200 - p2.keep
+            points_p1 = 700 - p2.keep
             points_p2 = p2.keep
 
             p1.participant.vars["game_payoff"]["dictator"] = points_p1
@@ -98,6 +97,7 @@ class Group(BaseGroup):
 
     def set_payoffs(self):
         choice([self.player_one_decides, self.player_two_decides])()
+
 
 class Player(BasePlayer):
     keep = models.IntegerField()

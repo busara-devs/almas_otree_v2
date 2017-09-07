@@ -61,11 +61,11 @@ class Offer(Page):
 
     def keep_error_message(self, value):
         if self.player.participant.vars["rank"] == "high":
-            high_choices = list(range(0, 2401, 5))
+            high_choices = list(range(0, 1401, 5))
             if value not in high_choices:
                 return "Value must be {}".format(list(high_choices))
         elif self.player.participant.vars["rank"] == "low":
-            low_choices = list(range(0, 1201, 5))
+            low_choices = list(range(0, 701, 5))
             if value not in low_choices:
                 return "Value must be {}".format(list(low_choices))
 

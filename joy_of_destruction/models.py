@@ -42,15 +42,16 @@ class Player(BasePlayer):
         choice = random.choice([0, 1])
         if choice == 0:
             # heads nothing
-            self.coin_toss = "Heads"
+            other = self.get_others_in_group()[0]
+            other.coin_toss = "Heads"
         else:
             # tails all
             other = self.get_others_in_group()[0]
             if other.vouchers > 1:
                 other.computer_destroyed = random.randrange(1, other.vouchers)
-                self.coin_toss = "Tails"
+                other.coin_toss = "Tails"
             else:
-                self.coin_toss = "Tails"
+                other.coin_toss = "Tails"
 
     def set_vouchers(self):
         other = self.get_others_in_group()[0]

@@ -9,7 +9,7 @@
     <div class="panel panel-success">
       <div class="panel-body">
         <p>
-            You have earned {{ carrying_payoff }}. You can either keep this entire amount, or you can donate parts of
+            You have earned KSH {{ max_donation }}. You can either keep this entire amount, or you can donate parts of
             it to a charity.
         </p>
         <p>
@@ -17,7 +17,7 @@
             youth in Kenya, <strong>{{ charity }}</strong>.
         </p>
         <p>
-        You can decide to donate  between 0 and {{ max_donation }} of your tokens.
+        You can decide to donate  between KSH 0 and KSH {{ max_donation }}.
         </p>
         <p>
              {% formfield player.donated_amount with label="How much will you donate?" %}

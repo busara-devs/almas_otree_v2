@@ -33,4 +33,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+
+    def save_payoff(self):
+        self.payoff = self.player.participant.vars["carrying_payoff"]
+        self.total_payoff = self.player.participant.vars["carrying_payoff"]
+
     total_payoff = models.IntegerField()

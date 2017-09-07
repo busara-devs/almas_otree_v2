@@ -1,32 +1,25 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from . import models
 from ._builtin import Page, WaitPage
-from otree.common import Currency as c, currency_range
-from .models import Constants
-import random
+import math
+
+
+class WaitForAll(WaitPage):
+
+    def after_all_players_arrive(self):
+        for p in self.group.get_players():
+            p.payoff = p.participant.vars["carrying_payoff"]
+            p.total_payoff = p.participant.vars["carrying_payoff"]
 
 
 class PaymentInfo(Page):
-    def is_displayed(self):
-        game_obj = self.participant.vars["game_payoff"].keys()
-        self.player.total_payoff = sum(payoffs(game_obj))
-        return True
-
     def vars_for_template(self):
         participant = self.player.participant
         return {
             'redemption_code': participant.label or participant.code,
-            'payoff': self.player.total_payoff,
+            'payoff': math.ceil(participant.vars["carrying_payoff"]),
             'vouchers': participant.vars["vouchers"]
         }
 
 
-def payoffs(game_obj):
-    games = game_obj.keys()
-    games = random.sample(games, 3)
-    for game in games:
-        yield game_obj[game]
-
-
-page_sequence = [PaymentInfo]
+page_sequence = [WaitForAll, PaymentInfo]

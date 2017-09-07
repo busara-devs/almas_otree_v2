@@ -32,7 +32,6 @@ class Constants(BaseConstants):
                  'Jibana',
                  'Kalenjin',
                  'Kamba',
-                 'Kamba',
                  'Kauma',
                  'Kikuyu',
                  'Kipsigis',

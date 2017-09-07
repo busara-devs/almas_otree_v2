@@ -65,3 +65,5 @@ class Player(BasePlayer):
     vouchers = models.IntegerField(default=0)
 
     coin_toss = models.CharField()
+
+    random_games = models.CharField()

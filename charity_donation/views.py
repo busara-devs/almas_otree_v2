@@ -31,7 +31,7 @@ class Donate(Page):
         self.player.charity_allocated = charity
         return {
             'charity': charity,
-            'max_donation': math.floor(self.player.participant.vars["carrying_payoff"]) * 0.4
+            'max_donation': math.floor(self.player.participant.vars["carrying_payoff"] * 0.4)
         }
 
 

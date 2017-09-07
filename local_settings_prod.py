@@ -14,9 +14,9 @@ SESSION_CONFIGS = [
         "name": "full_exp",
         "display_name": "Almas Temparature Experiment",
         "num_demo_participants": 6,
-        "app_sequence": ["production"],
-        # "app_sequence": ["production", "real_effort_dictator", "risk_game", "time_preference", "trust", "public_goods",
-        #                  "ravens", "joy_of_destruction", "charity_donation", "survey", "payment_info"],
+        "app_sequence": ["production", "real_effort_dictator", "risk_game", "time_preference", "trust", "public_goods",
+                         "ravens", "joy_of_destruction", "charity_donation", "survey", "payment_info"],
     },
 ]
 
+DEBUG = False

@@ -35,7 +35,7 @@ class Constants(BaseConstants):
         3: [list(range(71, 141))],
         4: [list(range(141, 211))],
         5: [list(range(211, 276))],
-        6: [list(range(276, 344))],
+        6: [list(range(276, 345))],
         7: [345],
     }
 

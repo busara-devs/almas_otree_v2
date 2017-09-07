@@ -16,13 +16,13 @@ class Introduction(Page):
 
 class Destroy(Page):
     form_model = models.Player
-    form_fields = ["other_player_destroyed"]
+    form_fields = ["player_destroyed"]
 
     def player_destroyed_max(self):
         # 0 - 2/2 = 1
         other_players_points = self.player.get_others_in_group()[0].participant.vars["ravens_points"]
-        if other_players_points >= 2:
-            return other_players_points/2
+        if other_players_points < 0:
+            return other_players_points
         else:
             return 0
 
@@ -31,9 +31,10 @@ class Destroy(Page):
         return {
             "raven_points": py.participant.vars["ravens_points"],
         }
+
     def before_next_page(self):
         player_y = self.player.get_others_in_group()[0]
-        player_y.vouchers = player_y.vouchers - player_y.other_player_destroyed
+        player_y.vouchers = player_y.vouchers - self.player.player_destroyed
 
         self.player.computer_destroyed_points()
 

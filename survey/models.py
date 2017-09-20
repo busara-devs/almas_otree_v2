@@ -91,28 +91,28 @@ class Player(BasePlayer):
     demographic_one_scale = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '0', 'max': '10'}))
 
-    age = models.CharField(default="prefer not to say", blank=True, null=True)
+    age = models.CharField(default="Prefer not to say", blank=True, null=True)
 
-    height = models.CharField(default="prefer not to say", blank=True, null=True)
+    height = models.CharField(default="Prefer not to say", blank=True, null=True)
 
-    weight = models.CharField(default="prefer not to say", blank=True, null=True)
+    weight = models.CharField(default="Prefer not to say", blank=True, null=True)
 
-    gender = models.CharField(choices=['Male', 'Female', "prefer not to say"],
+    gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())
 
     ethnicity = models.CharField(choices=Constants.ETHNICITY,
                                  widget=widgets.RadioSelectHorizontal())
 
     california_residency = models.CharField(
-        choices=['No', 'Yes, for 5 years or more', 'Yes, for less than 5 years', 'prefer not to say'],
+        choices=['No', 'Yes, for 5 years or more', 'Yes, for less than 5 years', 'Prefer not to say'],
         widget=widgets.RadioSelect())
 
     father_occupation = models.CharField(widget=widgets.RadioSelect(),
-                                         choices=["Wage-employed", "Self-employed", "Unemployed", "prefer not to say"]
+                                         choices=["Wage-employed", "Self-employed", "Unemployed", "Prefer not to say"]
                                          )
 
     mother_occupation = models.CharField(widget=widgets.RadioSelect(),
-                                         choices=["Wage-employed", "Self-employed", "Unemployed", "prefer not to say"]
+                                         choices=["Wage-employed", "Self-employed", "Unemployed", "Prefer not to say"]
                                          )
 
     income = models.CharField(widget=widgets.RadioSelect(),
@@ -122,7 +122,7 @@ class Player(BasePlayer):
                                        "$75,000 - $121,000",
                                        "More than $121,000",
                                        "Don't know",
-                                       "prefer not to say"
+                                       "Prefer not to say"
                                        ])
 
     education_father = models.CharField(widget=widgets.RadioSelect(),
@@ -131,7 +131,7 @@ class Player(BasePlayer):
                                                  "Completed technical college",
                                                  "Completed University",
                                                  "Other",
-                                                 "prefer not to say"
+                                                 "Prefer not to say"
                                                  ])
 
     education_mother = models.CharField(widget=widgets.RadioSelect(),
@@ -140,7 +140,7 @@ class Player(BasePlayer):
                                                  "Completed technical college",
                                                  "Completed University",
                                                  "Other",
-                                                 "prefer not to say"
+                                                 "Prefer not to say"
                                                  ])
 
     crt_bat = models.PositiveIntegerField()

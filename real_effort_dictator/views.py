@@ -57,7 +57,6 @@ class ShuffleWaitPage(WaitPage):
 
 
 class Intro(Page):
-
     def vars_for_template(self):
         participant = self.player.participant
         return {
@@ -97,6 +96,7 @@ class Wait(WaitPage):
     body_text = "Please wait."
 
     wait_for_all_groups = True
+
 
 page_sequence = [
     ShuffleWaitPage,

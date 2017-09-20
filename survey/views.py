@@ -56,6 +56,7 @@ class Demographics(Page):
 page_sequence = [
     CognitiveReflectionTest,
     One,
+    One2,
     Two,
     Three,
     Four,

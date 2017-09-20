@@ -34,13 +34,13 @@ class Three(Page):
     form_model = models.Player
     form_fields = ['ethnicity']
 
-    def is_displayed(self):
-        return False
-
 
 class Four(Page):
     form_model = models.Player
     form_fields = ['california_residency']
+
+    def is_displayed(self):
+        return False
 
 
 class Demographics(Page):

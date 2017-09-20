@@ -67,8 +67,6 @@ page_sequence = [
     Introduction,
     Wait,
     Destroy,
-    Wait,
-    Destroyed,
     ResultsWaitPage,
     Wait,
 ]

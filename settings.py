@@ -24,7 +24,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DATABASES['default'].update(db_from_env)
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'Bus@r@1'
@@ -58,7 +58,7 @@ AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'KSH'
 USE_POINTS = True
 POINTS_CUSTOM_NAME = 'tokens'
 
@@ -107,7 +107,7 @@ mturk_hit_settings = {
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 0.005714,
+    'real_world_currency_per_point': 0.285714,
     'participation_fee': 0,
     'num_bots': 12,
     'doc': "",

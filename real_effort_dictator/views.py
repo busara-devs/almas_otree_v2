@@ -34,14 +34,18 @@ class ShuffleWaitPage(WaitPage):
             for pair in pairs:
                 if pairs.index(pair) > median_sort:
                     for player in pair:
+                        player.rank = "high"
                         player.participant.vars["rank"] = "high"
 
                 elif pairs.index(pair) == median_sort:
                     for player in pair:
-                        player.participant.vars["rank"] = random.choice(["high", "low"])
-
+                        choice = random.choice(["high", "low"])
+                        choice = (choice,)[0]
+                        player.participant.vars["rank"] = choice
+                        player.rank = choice
                 else:
                     for player in pair:
+                        player.rank = "low"
                         player.participant.vars["rank"] = "low"
 
         # chunk players into groups

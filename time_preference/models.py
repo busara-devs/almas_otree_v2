@@ -74,7 +74,6 @@ class Player(BasePlayer):
     def set_payoff(self):
 
         self.payoff = self.payment_today_ab
-        self.participant.vars["carrying_payoff"] = self.payment_today_ab
         self.participant.vars["game_payoff"]["time_preference"] = self.payment_today_ab
         self.time_preference_points = self.payment_today_ab
 

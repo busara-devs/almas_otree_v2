@@ -109,3 +109,4 @@ class Player(BasePlayer):
     keep = models.IntegerField()
     real_effort_dictator_endowment = models.IntegerField(initial=0)
     real_effort_dictator_points = models.IntegerField(initial=0)
+    rank = models.CharField()

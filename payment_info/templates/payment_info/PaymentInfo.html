@@ -9,26 +9,26 @@
 
     <div class="panel panel-default" style="margin-bottom:10px">
         <div class="panel-body">
-            <p>Your total earning is {{ payoff }} Tokens worth {{ payoff_usd }}.</p>
+            <p>Your total earnings from the modules (excluding the online amazon gift cards) is {{ payoff }} Tokens worth {{ payoff_usd }}.</p>
             {% if vouchers <= 0 %}
                 <p>You have earned 0 Amazon gift cards.</p>
             {% else %}
-                <p>Your earned {{ vouchers }} Amazon gift vouchers worth ${{ airtime_worth }}.</p>
+                <p>You have also earned {{ vouchers }} Amazon gift vouchers worth ${{ airtime_worth }}.</p>
             {% endif %}
             {% if menu_a_b_today %}
-                <p>You will be paid {{ menu_a_b_today }} Tokens  amounting to {{ menu_a_b_today_usd }} Today.</p>
+                <p>You will be paid {{ menu_a_b_today }} Tokens  amounting to {{ menu_a_b_today_usd }} today in online amazon gift cards.</p>
             {% endif %}
 
             {% if menu_a_b_3weeks %}
-                <p>You will be paid {{ menu_a_b_3weeks }} Tokens  amounting to {{ menu_a_b_3weeks_usd }} in 3 Weeks.</p>
+                <p>You will be paid {{ menu_a_b_3weeks }} Tokens  amounting to {{ menu_a_b_3weeks_usd }} in 3 Weeks in online amazon gift cards.</p>
             {% endif %}
 
             {% if menu_c_d_3weeks %}
-                <p>You will be paid {{ menu_c_d_3weeks }} Tokens  amounting to {{ menu_c_d_3weeks_usd }} in 3 Weeks.</p>
+                <p>You will be paid {{ menu_c_d_3weeks }} Tokens  amounting to {{ menu_c_d_3weeks_usd }} in 3 Weeks in online amazon gift cards.</p>
             {% endif %}
 
             {% if menu_c_d_7weeks %}
-                <p>You will be paid {{ menu_c_d_7weeks }} Tokens  amounting to {{ menu_c_d_7weeks_usd }} in 7 Weeks.</p>
+                <p>You will be paid {{ menu_c_d_7weeks }} Tokens  amounting to {{ menu_c_d_7weeks_usd }} in 7 Weeks in online amazon gift cards.</p>
             {% endif %}
             <p>
                 Please remain seated until further instructions.

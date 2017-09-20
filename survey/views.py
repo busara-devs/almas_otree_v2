@@ -25,6 +25,11 @@ class One(Page):
     form_fields = ['demographic_one_scale']
 
 
+class One2(Page):
+    form_model = models.Player
+    form_fields = ['affect']
+
+
 class Two(Page):
     form_model = models.Player
     form_fields = ['age', 'height', 'weight', 'gender']

@@ -22,7 +22,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
 
     db_from_env = dj_database_url.config()
     DATABASES['default'].update(db_from_env)
-    DEBUG = True
+    DEBUG = False
 else:
     DEBUG = True
 

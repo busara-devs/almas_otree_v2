@@ -48,7 +48,8 @@ class SendBack(Page):
         return {'amount_allocated': Constants.amount_allocated,
                 'tripled_amount': tripled_amount,
                 'amount_sent': amount_sent,
-                'prompt': 'Please enter a number from 0 to %s:' % tripled_amount,
+                'prompt': 'How many tokens do you choose to send back to Participant A? Please choose '
+                          'a number from 0 to %s:' % tripled_amount,
                 }
 
     def sent_back_amount_max(self):

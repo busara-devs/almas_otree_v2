@@ -100,6 +100,20 @@ class Player(BasePlayer):
     gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())
 
+    affect = models.CharField(choices=["Tense",
+                                       "Nervous",
+                                       "Upset",
+                                       "Sad",
+                                       "Lethargic",
+                                       "Fatigued",
+                                       "Calm",
+                                       "Relaxed",
+                                       "Contented",
+                                       "Happy",
+                                       "Excited",
+                                       "Alert"],
+                              widget=widgets.RadioSelect())
+
     ethnicity = models.CharField(choices=Constants.ETHNICITY,
                                  widget=widgets.RadioSelectHorizontal())
 

@@ -1,0 +1,21 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Survey
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div>
+                <p>
+                    How do you feel right now?
+                    {% formfield player.affect with label="" %}
+                </p>
+            </div>
+        </div>
+    </div>
+    <p><strong>Please click "Next" to continue</strong></p>
+    {% next_button %}
+{% endblock %}

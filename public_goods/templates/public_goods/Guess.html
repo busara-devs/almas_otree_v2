@@ -8,14 +8,13 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <p>
-                We now want to ask you what you believe the other participant put into the shared fund. If you are correct,
-                you will receive an extra 175 tokens.
+                How many tokens do you believe the other participant put into the shared fund?
             </p>
             {% if player.id_in_group == 1 %}
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            {% formfield player.guess with label="I believe that the other player contributed:" %}
+                            {% formfield player.guess with label="" %}
                         </div>
                     </div>
                 </div>
@@ -23,7 +22,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            {% formfield player.guess with label="I believe that the other player contributed:" %}
+                            {% formfield player.guess with label="" %}
                         </div>
                     </div>
                 </div>
@@ -31,14 +30,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            {% formfield player.guess with label="I believe that the other player contributed:" %}
+                            {% formfield player.guess with label="" %}
                         </div>
                     </div>
                 </div>
             {% endif %}
         </div>
     </div>
-    <p><strong>Click Next to continue.</strong></p>
+    <p><strong>Please click "Next" to continue.</strong></p>
     {% next_button %}
 
 

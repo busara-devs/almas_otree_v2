@@ -140,13 +140,13 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     CHOICE_ONE = (
-        ("Coin 1", "Coin 1: 0 Tokens if heads and 2880 Tokens if tails"),
-        ("Coin 2", "Coin 2: 240 Tokens if heads and 2400 Tokens if tails"),
-        ("Coin 3", "Coin 3: 480 Tokens if heads and 1920 Tokens if tails"),
-        ("Coin 4", "Coin 4: 720 Tokens if heads and 1440 Tokens if tails"),
-        ("Coin 5", "Coin 5: 840 Tokens if heads and 1200 Tokens if tails"),
-        ("Coin 6", "Coin 6: 960 Tokens if heads and 960 Tokens if tails"),
-        ("Coin 7", "Coin 7: 1080 Tokens if heads and 720 Tokens if tails"),
+        ("Coin 1", "Coin 1: 0 tokens if heads and 2880 tokens if tails"),
+        ("Coin 2", "Coin 2: 240 tokens if heads and 2400 tokens if tails"),
+        ("Coin 3", "Coin 3: 480 tokens if heads and 1920 tokens if tails"),
+        ("Coin 4", "Coin 4: 720 tokens if heads and 1440 tokens if tails"),
+        ("Coin 5", "Coin 5: 840 tokens if heads and 1200 tokens if tails"),
+        ("Coin 6", "Coin 6: 960 tokens if heads and 960 tokens if tails"),
+        ("Coin 7", "Coin 7: 1080 tokens if heads and 720 tokens if tails"),
     )
 
     CHOICE_TWO = (

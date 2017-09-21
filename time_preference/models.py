@@ -76,39 +76,39 @@ class Player(BasePlayer):
         self.time_preference_points = self.payment_today_ab
 
     q1 = [
-        ('840_now-0_3weeks', '840 Tokens Today AND 0 Tokens in 3 Weeks'),
-        ('672_now-240_3weeks', '672 Tokens Today AND 240 Tokens in 3 Weeks'),
-        ('504_now-480_3weeks', '504 Tokens Today AND 480 Tokens in 3 Weeks'),
-        ('336_now-720_3weeks', '336 Tokens Today AND 720 Tokens in 3 Weeks'),
-        ('168_now-960_3weeks', '168 Tokens Today AND 960 Tokens in 3 Weeks'),
-        ('0_now-1200_3weeks', '0 Tokens Today AND 1200 Tokens in 3 Weeks'),
+        ('840_now-0_3weeks', '840 tokens Today AND 0 tokens in 3 weeks'),
+        ('672_now-240_3weeks', '672 tokens Today AND 240 tokens in 3 weeks'),
+        ('504_now-480_3weeks', '504 tokens Today AND 480 tokens in 3 weeks'),
+        ('336_now-720_3weeks', '336 tokens Today AND 720 tokens in 3 weeks'),
+        ('168_now-960_3weeks', '168 tokens Today AND 960 tokens in 3 weeks'),
+        ('0_now-1200_3weeks', '0 tokens Today AND 1200 tokens in 3 weeks'),
     ]
 
     q2 = [
-        ('1020_now-0_3weeks', '1020 Tokens Today AND 0 Tokens in 3 Weeks'),
-        ('836_now-184_3weeks', '836 Tokens Today AND 184 Tokens in 3 Weeks'),
-        ('632_now-388_3weeks', '632 Tokens Today AND 388 Tokens in 3 Weeks'),
-        ('428_now-592_3weeks', '428 Tokens Today AND 592 Tokens in 3 Weeks'),
-        ('224_now-796_3weeks', '224 Tokens Today AND 796 Tokens in 3 Weeks'),
-        ('0_now-1020_3weeks', '0 Tokens Today And 1020 Tokens in 3 Weeks'),
+        ('1020_now-0_3weeks', '1020 tokens Today AND 0 tokens in 3 weeks'),
+        ('836_now-184_3weeks', '836 tokens Today AND 184 tokens in 3 weeks'),
+        ('632_now-388_3weeks', '632 tokens Today AND 388 tokens in 3 weeks'),
+        ('428_now-592_3weeks', '428 tokens Today AND 592 tokens in 3 weeks'),
+        ('224_now-796_3weeks', '224 tokens Today AND 796 tokens in 3 weeks'),
+        ('0_now-1020_3weeks', '0 tokens Today And 1020 tokens in 3 weeks'),
     ]
 
     q3 = [
-        ('840_3weeks-0_7weeks', '840 Tokens in 3 Weeks AND 0 Tokens in 7 Weeks'),
-        ('672_3weeks-240_7weeks', '672 Tokens in 3 Weeks AND 240 Tokens in 7 Weeks'),
-        ('504_3weeks-480_7weeks', '504 Tokens in 3 Weeks AND 480 Tokens in 7 Weeks'),
-        ('336_3weeks-720_7weeks', '336 Tokens in 3 Weeks AND 720 Tokens in 7 Weeks'),
-        ('168_3weeks-960_7weeks', '168 Tokens in 3 Weeks AND 960 Tokens in 7 Weeks'),
-        ('0_3weeks-1200_7weeks', '0 Tokens in 3 Weeks AND 1200 Tokens in 7 Weeks'),
+        ('840_3weeks-0_7weeks', '840 tokens in 3 weeks AND 0 tokens in 7 weeks'),
+        ('672_3weeks-240_7weeks', '672 tokens in 3 weeks AND 240 tokens in 7 weeks'),
+        ('504_3weeks-480_7weeks', '504 tokens in 3 weeks AND 480 tokens in 7 weeks'),
+        ('336_3weeks-720_7weeks', '336 tokens in 3 weeks AND 720 tokens in 7 weeks'),
+        ('168_3weeks-960_7weeks', '168 tokens in 3 weeks AND 960 tokens in 7 weeks'),
+        ('0_3weeks-1200_7weeks', '0 tokens in 3 weeks AND 1200 tokens in 7 weeks'),
     ]
 
     q4 = [
-        ('1020_3weeks-0_7weeks', '1020 Tokens in 3 Weeks AND 0 Tokens in 7 Weeks'),
-        ('836_3weeks-184_7weeks', '836 Tokens in 3 Weeks AND 184 Tokens in 7 Weeks'),
-        ('632_3weeks-388_7weeks', '632 Tokens in 3 Weeks AND 388 Tokens in 7 Weeks'),
-        ('428_3weeks-592_7weeks', '428 Tokens in 3 Weeks AND 592 Tokens in 7 Weeks'),
-        ('224_3weeks-796_7weeks', '224 Tokens in 3 Weeks AND 796 Tokens in 7 Weeks'),
-        ('0_3weeks-1020_7weeks', '0 Tokens in 3 Weeks AND 1020 Tokens in 7 Weeks'),
+        ('1020_3weeks-0_7weeks', '1020 tokens in 3 weeks AND 0 tokens in 7 weeks'),
+        ('836_3weeks-184_7weeks', '836 tokens in 3 weeks AND 184 tokens in 7 weeks'),
+        ('632_3weeks-388_7weeks', '632 tokens in 3 weeks AND 388 tokens in 7 weeks'),
+        ('428_3weeks-592_7weeks', '428 tokens in 3 weeks AND 592 tokens in 7 weeks'),
+        ('224_3weeks-796_7weeks', '224 tokens in 3 weeks AND 796 tokens in 7 weeks'),
+        ('0_3weeks-1020_7weeks', '0 tokens in 3 weeks AND 1020 tokens in 7 weeks'),
     ]
 
     menu_a = models.CharField(choices=q1, verbose_name="", widget=widgets.RadioSelect())

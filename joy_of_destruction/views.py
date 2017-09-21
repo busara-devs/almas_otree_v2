@@ -68,7 +68,7 @@ page_sequence = [
     Wait,
     Destroy,
     Wait,
-    Destroyed,
+    # Destroyed,
     ResultsWaitPage,
     Wait,
 ]

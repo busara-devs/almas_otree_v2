@@ -12,11 +12,12 @@ class Wait(WaitPage):
 
     def after_all_players_arrive(self):
         for p in self.group.get_players():
-            p.participant.payoff = c(p.participant.vars["carrying_payoff"]).to_real_world_currency(self.session)
-            p.payoff = p.participant.vars["carrying_payoff"]
+            p.payoff_points = p.participant.vars["carrying_payoff"]
+            p.payoff_currency = c(p.participant.vars["carrying_payoff"]).to_real_world_currency(self.session)
 
 
 class PaymentInfo(Page):
+
     def vars_for_template(self):
         participant = self.player.participant
         menu_a_b_today = participant.vars.get("menu_a_b_today", None)

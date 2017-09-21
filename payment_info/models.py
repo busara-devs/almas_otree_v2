@@ -35,4 +35,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    payoff_points = models.CharField()
+    payoff_currency = models.CharField()

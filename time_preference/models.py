@@ -72,7 +72,7 @@ class Player(BasePlayer):
             self.select_menu_c_d(choice)
 
     def set_payoff(self):
-        self.payoff = self.payment_today_ab
+        # self.payoff = self.payment_today_ab
         self.time_preference_points = self.payment_today_ab
 
     q1 = [

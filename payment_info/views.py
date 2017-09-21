@@ -12,8 +12,8 @@ class Wait(WaitPage):
 
     def after_all_players_arrive(self):
         for p in self.group.get_players():
-            p.participant.payoff = c(p.participant.vars["carrying_payoff"]).to_real_world_currency(self.session)
-            p.payoff = p.participant.vars["carrying_payoff"]
+            p.payoff_points = p.participant.vars["carrying_payoff"]
+            p.payoff_currency = c(p.participant.vars["carrying_payoff"]).to_real_world_currency(self.session)
 
 
 class PaymentInfo(Page):

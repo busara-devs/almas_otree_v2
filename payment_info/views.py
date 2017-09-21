@@ -33,13 +33,11 @@ class PaymentInfo(Page):
                 'vouchers': participant.vars.get("vouchers", None),
                 'airtime_worth': 1 * participant.vars.get("vouchers", None),
 
-                'menu_a_b_today': "{0:.2f}".format(participant.vars.get("menu_a_b_today", None)["today"]),
-                'menu_a_b_today_usd': c(participant.vars.get("menu_a_b_today", None)["today"]).to_real_world_currency(
-                    self.session),
+                'menu_a_b_today': float("{0:.2f}".format(participant.vars.get("menu_a_b_today", None)["today"])),
+                'menu_a_b_today_usd': c(participant.vars.get("menu_a_b_today", None)["today"]).to_real_world_currency(self.session),
 
-                'menu_a_b_3weeks': "{0:.2f}".format(participant.vars.get("menu_a_b_3weeks", None)["weeks3"]),
-                'menu_a_b_3weeks_usd': c(
-                    participant.vars.get("menu_a_b_3weeks", None)["weeks3"]).to_real_world_currency(self.session)
+                'menu_a_b_3weeks': float("{0:.2f}".format(participant.vars.get("menu_a_b_3weeks", None)["weeks3"])),
+                'menu_a_b_3weeks_usd': c(participant.vars.get("menu_a_b_3weeks", None)["weeks3"]).to_real_world_currency(self.session)
             }
 
         elif menu_c_d_3weeks and menu_c_d_7weeks:
@@ -50,13 +48,11 @@ class PaymentInfo(Page):
                 'vouchers': participant.vars.get("vouchers", None),
                 'airtime_worth': 1 * participant.vars.get("vouchers", None),
 
-                'menu_c_d_3weeks': "{0:.2f}".format(participant.vars.get("menu_c_d_3weeks", None)["weeks3"]),
-                'menu_c_d_3weeks_usd': c(
-                    participant.vars.get("menu_c_d_3weeks", None)["weeks3"]).to_real_world_currency(self.session),
+                'menu_c_d_3weeks': float("{0:.2f}".format(participant.vars.get("menu_c_d_3weeks", None)["weeks3"])),
+                'menu_c_d_3weeks_usd': c(participant.vars.get("menu_c_d_3weeks", None)["weeks3"]).to_real_world_currency(self.session),
 
-                'menu_c_d_7weeks': "{0:.2f}".format(participant.vars.get("menu_c_d_7weeks", None)["weeks7"]),
-                'menu_c_d_7weeks_usd': c(
-                    participant.vars.get("menu_c_d_7weeks", None)["weeks7"]).to_real_world_currency(self.session)
+                'menu_c_d_7weeks': float("{0:.2f}".format(participant.vars.get("menu_c_d_7weeks", None)["weeks7"])),
+                'menu_c_d_7weeks_usd': c(participant.vars.get("menu_c_d_7weeks", None)["weeks7"]).to_real_world_currency(self.session)
             }
         else:
             return {

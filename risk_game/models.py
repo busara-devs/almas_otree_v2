@@ -40,127 +40,102 @@ class Group(BaseGroup):
         for p in self.get_players():
             p.random_coin_toss_two = random.choice(["Heads", "Tails"])
 
-    def decision_one_payoff(self):
+    def menu_a_points(self):
         points = 0
         for p in self.get_players():
             if p.decision_one == "Coin 1":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 0
                     points = 0
                 else:
-                    p.payoff = 2880
                     points = 2880
 
             elif p.decision_one == "Coin 2":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 240
                     points = 240
                 else:
-                    p.payoff = 2400
                     points = 2400
 
             elif p.decision_one == "Coin 3":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 480
                     points = 480
                 else:
-                    p.payoff = 1920
                     points = 1920
 
             elif p.decision_one == "Coin 4":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 720
                     points = 720
                 else:
-                    p.payoff = 1440
                     points = 1440
 
             elif p.decision_one == "Coin 5":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 840
                     points = 840
                 else:
-                    p.payoff = 1200
                     points = 1200
 
             elif p.decision_one == "Coin 6":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 960
                     points = 960
                 else:
-                    p.payoff = 960
                     points = 960
 
             elif p.decision_one == "Coin 7":
                 if p.random_coin_toss_one == "Heads":
-                    p.payoff = 1080
                     points = 1080
                 else:
-                    p.payoff = 720
                     points = 720
+        return points
 
-            p.participant.vars["game_payoff"]["risk_game"] = points
-            p.participant.vars["carrying_payoff"] += points
-            p.risk_games_points = points
-
-    def decision_two_payoff(self):
+    def menu_b_points(self):
         points = 0
         for p in self.get_players():
             if p.decision_two == "Coin 1":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 0
                     points = 0
                 else:
-                    p.payoff = 2160
                     points = 2160
 
             elif p.decision_two == "Coin 2":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 240
                     points = 240
                 else:
-                    p.payoff = 1920
                     points = 1920
 
             elif p.decision_two == "Coin 3":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 480
                     points = 480
                 else:
-                    p.payoff = 1680
                     points = 1680
 
             elif p.decision_two == "Coin 4":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 720
                     points = 720
                 else:
-                    p.payoff = 1440
                     points = 1440
 
             elif p.decision_two == "Coin 5":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 960
                     points = 960
                 else:
-                    p.payoff = 1200
                     points = 1200
 
             elif p.decision_two == "Coin 6":
-                p.payoff = 1080
                 points = 1080
 
             elif p.decision_two == "Coin 7":
                 if p.random_coin_toss_two == "Heads":
-                    p.payoff = 1200
                     points = 1200
                 else:
-                    p.payoff = 960
                     points = 960
+        return points
 
-            p.participant.vars["game_payoff"]["risk_game"] += points
+    def set_payoff(self):
+        points = self.menu_a_points() + self.menu_b_points()
+        for p in self.get_players():
+            p.participant.vars["game_payoff"]["risk_game"] = points
             p.participant.vars["carrying_payoff"] += points
             p.risk_games_points = points
+            p.payoff = points
 
 
 class Player(BasePlayer):

@@ -36,8 +36,7 @@ class ResultsWaitPage(WaitPage):
     body_text = "Please wait."
 
     def after_all_players_arrive(self):
-        self.group.decision_one_payoff()
-        self.group.decision_two_payoff()
+        self.group.set_payoff()
 
 
 class Wait(WaitPage):

@@ -27,7 +27,7 @@ class One(Page):
 
 class One2(Page):
     form_model = models.Player
-    form_fields = ['affect']
+    form_fields = ['affect1_scale', 'affect2_scale']
 
 
 class Two(Page):

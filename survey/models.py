@@ -100,19 +100,9 @@ class Player(BasePlayer):
     gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())
 
-    affect = models.CharField(choices=["Tense",
-                                       "Nervous",
-                                       "Upset",
-                                       "Sad",
-                                       "Lethargic",
-                                       "Fatigued",
-                                       "Calm",
-                                       "Relaxed",
-                                       "Contented",
-                                       "Happy",
-                                       "Excited",
-                                       "Alert"],
-                              widget=widgets.RadioSelect())
+    affect1_scale = models.IntegerField(widget=widgets.SliderInput(attrs={'step': '1', 'min': '1', 'max': '7'}))
+    
+    affect2_scale = models.IntegerField(widget=widgets.SliderInput(attrs={'step': '1', 'min': '1', 'max': '7'}))
 
     ethnicity = models.CharField(choices=Constants.ETHNICITY,
                                  widget=widgets.RadioSelectHorizontal())

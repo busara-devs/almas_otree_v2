@@ -81,14 +81,14 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    cognitive_reflection_one = models.CharField()
-    cognitive_reflection_two = models.CharField()
-    # cognitive_reflection_three = models.CharField()
-    cognitive_reflection_four = models.CharField()
-    cognitive_reflection_five = models.CharField()
-    cognitive_reflection_six = models.CharField()
+    c_r_1 = models.CharField()
+    c_r_2 = models.CharField()
+    # c_r_three = models.CharField()
+    c_r_4 = models.CharField()
+    c_r_5 = models.CharField()
+    c_r_6 = models.CharField()
 
-    demographic_one_scale = models.IntegerField(
+    demo_1_scl = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '0', 'max': '10'}))
 
     age = models.CharField(default="Prefer not to say", blank=True, null=True)
@@ -100,24 +100,24 @@ class Player(BasePlayer):
     gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())
 
-    affect1_scale = models.IntegerField(
+    affct1_scl = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '1', 'max': '7'}))
 
-    affect2_scale = models.IntegerField(
+    affct2_scl = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '1', 'max': '7'}))
 
     ethnicity = models.CharField(choices=Constants.ETHNICITY,
                                  widget=widgets.RadioSelectHorizontal())
 
-    california_residency = models.CharField(
+    cali_residnc = models.CharField(
         choices=['No', 'Yes, for 5 years or more', 'Yes, for less than 5 years', 'Prefer not to say'],
         widget=widgets.RadioSelect())
 
-    father_occupation = models.CharField(widget=widgets.RadioSelect(),
+    father_occ = models.CharField(widget=widgets.RadioSelect(),
                                          choices=["Wage-employed", "Self-employed", "Unemployed", "Prefer not to say"]
                                          )
 
-    mother_occupation = models.CharField(widget=widgets.RadioSelect(),
+    mother_occ = models.CharField(widget=widgets.RadioSelect(),
                                          choices=["Wage-employed", "Self-employed", "Unemployed", "Prefer not to say"]
                                          )
 
@@ -131,7 +131,7 @@ class Player(BasePlayer):
                                        "Prefer not to say"
                                        ])
 
-    education_father = models.CharField(widget=widgets.RadioSelect(),
+    edu_father = models.CharField(widget=widgets.RadioSelect(),
                                         choices=["Completed High School",
                                                  "Completed Vocational College",
                                                  "Completed University (Bachelor)",
@@ -140,7 +140,7 @@ class Player(BasePlayer):
                                                  "Prefer not to say"
                                                  ])
 
-    education_mother = models.CharField(widget=widgets.RadioSelect(),
+    edu_mother = models.CharField(widget=widgets.RadioSelect(),
                                         choices=["Completed High School",
                                                  "Completed Vocational College",
                                                  "Completed University (Bachelor)",

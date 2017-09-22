@@ -24,7 +24,7 @@ revealed to any other participant.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'joy_of_destruction'
+    name_in_url = 'joy_O_D'
     players_per_group = 2
     num_rounds = 1
 
@@ -38,7 +38,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    def computer_destroyed_points(self):
+    def pc_destroyed_points(self):
         choice = random.choice([0, 1])
         if choice == 0:
             # heads nothing
@@ -48,20 +48,20 @@ class Player(BasePlayer):
             # tails all
             other = self.get_others_in_group()[0]
             if other.vouchers > 1:
-                other.computer_destroyed = random.randrange(1, other.vouchers)
+                other.pc_destroyed = random.randrange(1, other.vouchers)
                 other.coin_toss = "Tails"
             else:
                 other.coin_toss = "Tails"
 
     def set_vouchers(self):
         other = self.get_others_in_group()[0]
-        other.vouchers = other.vouchers - other.computer_destroyed
+        other.vouchers = other.vouchers - other.pc_destroyed
 
-    player_destroyed = models.IntegerField(min=0)
+    p_destroy = models.IntegerField(min=0)
 
-    other_destroyed = models.IntegerField(min=0)
+    o_destroy = models.IntegerField(min=0)
 
-    computer_destroyed = models.IntegerField(default=0)
+    pc_destroyed = models.IntegerField(default=0)
 
     vouchers = models.IntegerField(default=0)
 

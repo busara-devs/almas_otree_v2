@@ -22,7 +22,7 @@ correlated with linguistic and ethnic group of the likely beneficiaries.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'charity_donation'
+    name_in_url = 'charity'
     players_per_group = None
     num_rounds = 1
 

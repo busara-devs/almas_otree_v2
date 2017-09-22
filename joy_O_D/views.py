@@ -15,9 +15,9 @@ class Introduction(Page):
 
 class Destroy(Page):
     form_model = models.Player
-    form_fields = ["player_destroyed"]
+    form_fields = ["p_destroy"]
 
-    def player_destroyed_max(self):
+    def p_destroy_max(self):
         # 0 - 2/2 = 1
         other_players_points = self.player.get_others_in_group()[0].participant.vars["ravens_points"]
         if other_players_points > 0:
@@ -33,15 +33,15 @@ class Destroy(Page):
 
     def before_next_page(self):
         player_y = self.player.get_others_in_group()[0]
-        player_y.vouchers = player_y.vouchers - self.player.player_destroyed
-        self.player.computer_destroyed_points()
+        player_y.vouchers = player_y.vouchers - self.player.p_destroy
+        self.player.pc_destroyed_points()
         self.player.set_vouchers()
 
 
 class Destroyed(Page):
     def vars_for_template(self):
         py = self.player.get_others_in_group()[0]
-        total_destroyed = py.player_destroyed + self.player.computer_destroyed
+        total_destroyed = py.p_destroy + self.player.pc_destroyed
         return {
             "destroyed": total_destroyed
         }
@@ -54,7 +54,7 @@ class ResultsWaitPage(WaitPage):
         for player in self.group.get_players():
             player.participant.vars["vouchers"] = player.vouchers
             # save what the other player destroyed.
-            player.other_destroyed = player.get_others_in_group()[0].player_destroyed
+            player.o_destroy = player.get_others_in_group()[0].p_destroy
 
 
 class Wait(WaitPage):

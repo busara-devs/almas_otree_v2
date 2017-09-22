@@ -14,7 +14,7 @@ class ScreenOne(Page):
 
 class DecideOne(Page):
     form_model = models.Player
-    form_fields = ['decision_one']
+    form_fields = ['decision_1']
 
     def before_next_page(self):
         self.group.make_random_toss_one()
@@ -26,7 +26,7 @@ class ScreenTwo(Page):
 
 class DecideTwo(Page):
     form_model = models.Player
-    form_fields = ['decision_two']
+    form_fields = ['decision_2']
 
     def before_next_page(self):
         self.group.make_random_toss_two()

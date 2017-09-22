@@ -53,8 +53,8 @@ class Player(BasePlayer):
     CHOICES_8 = [("one", ""), ("two", ""), ("three", ""), ("four", ""),
                  ("five", ""), ("six", ""), ("seven", ""), ("eight", "")]
 
-    practise_one = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES_8)
-    practise_two = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES)
+    p_1 = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES_8)
+    p_2 = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES)
     raven_1 = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES)
     raven_2 = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES_8)
     raven_3 = models.CharField(widget=widgets.RadioSelectHorizontal(), choices=CHOICES)

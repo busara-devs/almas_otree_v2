@@ -34,104 +34,104 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def make_random_toss_one(self):
         for p in self.get_players():
-            p.random_coin_toss_one = random.choice(["Heads", "Tails"])
+            p.rand_toss_1 = random.choice(["Heads", "Tails"])
 
     def make_random_toss_two(self):
         for p in self.get_players():
-            p.random_coin_toss_two = random.choice(["Heads", "Tails"])
+            p.rand_toss_2 = random.choice(["Heads", "Tails"])
 
     def menu_a_points(self):
         for p in self.get_players():
-            if p.decision_one == "Coin 1":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 0
+            if p.decision_1 == "Coin 1":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 0
                 else:
-                    p.coin_one_value = 2880
+                    p.coin_1 = 2880
 
-            elif p.decision_one == "Coin 2":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 240
+            elif p.decision_1 == "Coin 2":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 240
                 else:
-                    p.coin_one_value = 2400
+                    p.coin_1 = 2400
 
-            elif p.decision_one == "Coin 3":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 480
+            elif p.decision_1 == "Coin 3":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 480
                 else:
-                    p.coin_one_value = 1920
+                    p.coin_1 = 1920
 
-            elif p.decision_one == "Coin 4":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 720
+            elif p.decision_1 == "Coin 4":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 720
                 else:
-                    p.coin_one_value = 1440
+                    p.coin_1 = 1440
 
-            elif p.decision_one == "Coin 5":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 840
+            elif p.decision_1 == "Coin 5":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 840
                 else:
-                    p.coin_one_value = 1200
+                    p.coin_1 = 1200
 
-            elif p.decision_one == "Coin 6":
-                p.coin_one_value = 960
+            elif p.decision_1 == "Coin 6":
+                p.coin_1 = 960
 
-            elif p.decision_one == "Coin 7":
-                if p.random_coin_toss_one == "Heads":
-                    p.coin_one_value = 1080
+            elif p.decision_1 == "Coin 7":
+                if p.rand_toss_1 == "Heads":
+                    p.coin_1 = 1080
 
                 else:
-                    p.coin_one_value = 720
+                    p.coin_1 = 720
 
     def menu_b_points(self):
         for p in self.get_players():
-            if p.decision_two == "Coin 1":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 0
+            if p.decision_2 == "Coin 1":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 0
                 else:
-                    p.coin_two_value = 2160
+                    p.coin_2 = 2160
 
-            elif p.decision_two == "Coin 2":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 240
+            elif p.decision_2 == "Coin 2":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 240
                 else:
-                    p.coin_two_value = 1920
+                    p.coin_2 = 1920
 
-            elif p.decision_two == "Coin 3":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 480
+            elif p.decision_2 == "Coin 3":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 480
                 else:
-                    p.coin_two_value = 1680
+                    p.coin_2 = 1680
 
-            elif p.decision_two == "Coin 4":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 720
+            elif p.decision_2 == "Coin 4":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 720
                 else:
-                    p.coin_two_value = 1440
+                    p.coin_2 = 1440
 
-            elif p.decision_two == "Coin 5":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 960
+            elif p.decision_2 == "Coin 5":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 960
                 else:
-                    p.coin_two_value = 1200
+                    p.coin_2 = 1200
 
-            elif p.decision_two == "Coin 6":
-                p.coin_two_value = 1080
+            elif p.decision_2 == "Coin 6":
+                p.coin_2 = 1080
 
-            elif p.decision_two == "Coin 7":
-                if p.random_coin_toss_two == "Heads":
-                    p.coin_two_value = 1200
+            elif p.decision_2 == "Coin 7":
+                if p.rand_toss_2 == "Heads":
+                    p.coin_2 = 1200
                 else:
-                    p.coin_two_value = 960
+                    p.coin_2 = 960
 
     def set_payoff(self):
         self.menu_a_points()
         self.menu_b_points()
 
         for p in self.get_players():
-            p.participant.vars["game_payoff"]["risk_game"] = p.coin_one_value + p.coin_two_value
-            p.participant.vars["carrying_payoff"] += p.coin_one_value + p.coin_two_value
-            p.risk_games_points = p.coin_one_value + p.coin_two_value
-            p.payoff = p.coin_one_value + p.coin_two_value
+            p.participant.vars["game_payoff"]["risk_game"] = p.coin_1 + p.coin_2
+            p.participant.vars["carrying_payoff"] += p.coin_1 + p.coin_2
+            p.risk_points = p.coin_1 + p.coin_2
+            p.payoff = p.coin_1 + p.coin_2
 
 
 class Player(BasePlayer):
@@ -155,10 +155,10 @@ class Player(BasePlayer):
         ("Coin 7", "Coin 7: 1200 tokens if heads and 960 tokens if tails"),
     )
 
-    decision_one = models.CharField(choices=CHOICE_ONE, widget=widgets.RadioSelect())
-    random_coin_toss_one = models.CharField()
-    coin_one_value = models.IntegerField()
-    coin_two_value = models.IntegerField()
-    decision_two = models.CharField(choices=CHOICE_TWO, widget=widgets.RadioSelect())
-    random_coin_toss_two = models.CharField()
-    risk_games_points = models.IntegerField()
+    decision_1 = models.CharField(choices=CHOICE_ONE, widget=widgets.RadioSelect())
+    rand_toss_1 = models.CharField()
+    coin_1 = models.IntegerField()
+    coin_2 = models.IntegerField()
+    decision_2 = models.CharField(choices=CHOICE_TWO, widget=widgets.RadioSelect())
+    rand_toss_2 = models.CharField()
+    risk_points = models.IntegerField()

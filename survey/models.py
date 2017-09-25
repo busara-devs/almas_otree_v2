@@ -81,12 +81,12 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    c_r_1 = models.CharField()
-    c_r_2 = models.CharField()
+    c_r_1 = models.IntegerField()
+    c_r_2 = models.IntegerField()
     # c_r_three = models.CharField()
-    c_r_4 = models.CharField()
-    c_r_5 = models.CharField()
-    c_r_6 = models.CharField()
+    c_r_4 = models.IntegerField()
+    c_r_5 = models.IntegerField()
+    c_r_6 = models.IntegerField()
 
     demo_1_scl = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '0', 'max': '10'}))

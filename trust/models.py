@@ -56,5 +56,5 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     sent_amount = models.IntegerField(min=0, max=600)
     sent_back_amount = models.IntegerField()
-    remaining_amount = models.IntegerField()
+    remaining_amount = models.IntegerField(initial=0)
     trust_points = models.IntegerField(initial=0)

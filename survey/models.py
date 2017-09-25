@@ -91,11 +91,11 @@ class Player(BasePlayer):
     demo_1_scl = models.IntegerField(
         widget=widgets.SliderInput(attrs={'step': '1', 'min': '0', 'max': '10'}))
 
-    age = models.CharField(default="Prefer not to say", blank=True, null=True)
+    age = models.IntegerField(blank=True, null=True)
 
-    height = models.CharField(default="Prefer not to say", blank=True, null=True)
+    height = models.IntegerField(blank=True, null=True)
 
-    weight = models.CharField(default="Prefer not to say", blank=True, null=True)
+    weight = models.IntegerField(blank=True, null=True)
 
     gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())

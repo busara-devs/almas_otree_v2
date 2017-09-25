@@ -22,6 +22,9 @@ class Send(Page):
     form_model = models.Player
     form_fields = ['sent_amount']
 
+    def before_next_page(self):
+        self.player.tripled_amount = self.player.sent_amount * 3
+
 
 class ShuffleWaitPage(WaitPage):
     body_text = "Please wait."
@@ -54,6 +57,9 @@ class SendBack(Page):
 
     def sent_back_amount_max(self):
         return self.player.get_others_in_group()[0].sent_amount * Constants.multiplication_factor
+
+    def before_next_page(self):
+        self.player.remaining_amount = self.player.tripled_amount - self.player.sent_back_amount
 
 
 class ResultsWaitPage(WaitPage):

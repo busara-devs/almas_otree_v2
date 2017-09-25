@@ -47,8 +47,8 @@ class Group(BaseGroup):
             points = int(Constants.amount_allocated) - int(p.sent_amount) + \
                      int(p.get_others_in_group()[0].sent_back_amount) + \
                      int(p.remaining_amount)
-            #p.participant.vars["carrying_payoff"] += points
-            #p.participant.vars["game_payoff"]["trust"] = points
+            p.participant.vars["carrying_payoff"] += points
+            p.participant.vars["game_payoff"]["trust"] = points
             p.payoff = points
             p.trust_points = points
 

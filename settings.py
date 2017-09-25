@@ -24,7 +24,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DATABASES['default'].update(db_from_env)
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'Bus@r@1'
@@ -120,9 +120,8 @@ SESSION_CONFIGS = [
         "name": "full_exp",
         "display_name": "Almas Temperature Experiment",
         "num_demo_participants": 6,
-        #"app_sequence": ["production", "dictator", "risk_game", "t_preference", "trust", "public_goods",
-                         #"ravens", "joy_O_D", "survey", "charity", "payment_info"],
-        "app_sequence": ["trust"],
+        "app_sequence": ["production", "dictator", "risk_game", "t_preference", "trust", "public_goods",
+                         "ravens", "joy_O_D", "survey", "charity", "payment_info"],
     },
 ]
 

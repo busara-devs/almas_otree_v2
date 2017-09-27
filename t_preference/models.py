@@ -24,7 +24,7 @@ a price list with ditterent choices about timing of payments.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'time_preference'
+    name_in_url = 't_preference'
     players_per_group = None
     num_rounds = 1
 
@@ -49,8 +49,8 @@ class Player(BasePlayer):
         menu_option = getattr(self, str(str_choice))
         if menu_option:
             now, future = str(menu_option).split('-')
-            self.payment_today_ab = int(str(now).split("_")[0])
-            self.payment_3weeks_ab = int(str(future).split("_")[0])
+            self.pay_tdy_ab = int(str(now).split("_")[0])
+            self.pay_3wks_ab = int(str(future).split("_")[0])
             self.participant.vars["menu_a_b_today"] = {"today": int(str(now).split("_")[0])}
             self.participant.vars["menu_a_b_3weeks"] = {"weeks3": int(str(future).split("_")[0])}
 
@@ -58,8 +58,8 @@ class Player(BasePlayer):
         menu_option = getattr(self, str(str_choice))
         if menu_option:
             three_weeks, seven_weeks = str(menu_option).split('-')
-            self.payment_3weeks_cd = int(str(three_weeks).split("_")[0])
-            self.payment_7weeks_cd = int(str(seven_weeks).split("_")[0])
+            self.pay_3wks_cd = int(str(three_weeks).split("_")[0])
+            self.pay_7wks_cd = int(str(seven_weeks).split("_")[0])
             self.participant.vars["menu_c_d_3weeks"] = {"weeks3": int(str(three_weeks).split("_")[0])}
             self.participant.vars["menu_c_d_7weeks"] = {"weeks7": int(str(seven_weeks).split("_")[0])}
 
@@ -73,9 +73,9 @@ class Player(BasePlayer):
 
     def set_payoff(self):
 
-        self.payoff = self.payment_today_ab
-        self.participant.vars["game_payoff"]["time_preference"] = self.payment_today_ab
-        self.time_preference_points = self.payment_today_ab
+        self.payoff = self.pay_tdy_ab
+        self.participant.vars["game_payoff"]["t_preference"] = self.pay_tdy_ab
+        self.t_p_points = self.pay_tdy_ab
 
     q1 = [
         ('840_now-0_3weeks', '840 tokens Today AND 0 tokens in 3 weeks'),
@@ -121,12 +121,12 @@ class Player(BasePlayer):
 
     menu_d = models.CharField(choices=q4, verbose_name="", widget=widgets.RadioSelect())
 
-    payment_today_ab = models.IntegerField(initial=0)
+    pay_tdy_ab = models.IntegerField(initial=0)
 
-    payment_3weeks_ab = models.IntegerField(initial=0)
+    pay_3wks_ab = models.IntegerField(initial=0)
 
-    payment_3weeks_cd = models.IntegerField(initial=0)
+    pay_3wks_cd = models.IntegerField(initial=0)
 
-    payment_7weeks_cd = models.IntegerField(initial=0)
+    pay_7wks_cd = models.IntegerField(initial=0)
 
-    time_preference_points = models.IntegerField(initial=0)
+    t_p_points = models.IntegerField(initial=0)

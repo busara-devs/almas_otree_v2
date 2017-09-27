@@ -48,12 +48,17 @@ class SendBack(Page):
         return {'amount_allocated': Constants.amount_allocated,
                 'tripled_amount': tripled_amount,
                 'amount_sent': amount_sent,
-                'prompt': 'How many tokens do you choose to send back to Participant A? Please choose '
-                          'a number from 0 to %s:' % tripled_amount,
+                'prompt': 'How many tokens do you choose to send back to Participant A? '
+                          'Please choose a number from 0 to %s:' % tripled_amount,
                 }
 
     def sent_back_amount_max(self):
         return self.player.get_others_in_group()[0].sent_amount * Constants.multiplication_factor
+
+    def before_next_page(self):
+        amount_sent = self.player.get_others_in_group()[0].sent_amount
+        tripled_amount = amount_sent * Constants.multiplication_factor
+        self.player.remaining_amount = tripled_amount - self.player.sent_back_amount
 
 
 class ResultsWaitPage(WaitPage):

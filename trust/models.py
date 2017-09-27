@@ -44,7 +44,9 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def set_payoffs(self):
         for p in self.get_players():
-            points = int(Constants.amount_allocated) - int(p.sent_amount) + int(p.get_others_in_group()[0].sent_back_amount)
+            points = int(Constants.amount_allocated) - int(p.sent_amount) + \
+                     int(p.get_others_in_group()[0].sent_back_amount) + \
+                     int(p.remaining_amount)
             p.participant.vars["carrying_payoff"] += points
             p.participant.vars["game_payoff"]["trust"] = points
             p.payoff = points
@@ -53,5 +55,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     sent_amount = models.IntegerField(min=0, max=600)
-    sent_back_amount = models.IntegerField()
+    sent_back_amount = models.IntegerField(initial=0)
+    remaining_amount = models.IntegerField(initial=0)
     trust_points = models.IntegerField(initial=0)

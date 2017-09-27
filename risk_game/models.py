@@ -128,10 +128,11 @@ class Group(BaseGroup):
         self.menu_b_points()
 
         for p in self.get_players():
-            p.participant.vars["game_payoff"]["risk_game"] = p.coin_1 + p.coin_2
-            p.participant.vars["carrying_payoff"] += p.coin_1 + p.coin_2
-            p.risk_points = p.coin_1 + p.coin_2
-            p.payoff = p.coin_1 + p.coin_2
+            if p.coin_1 and p.coin_2:
+                p.participant.vars["game_payoff"]["risk_game"] = p.coin_1 + p.coin_2
+                p.participant.vars["carrying_payoff"] += p.coin_1 + p.coin_2
+                p.risk_points = p.coin_1 + p.coin_2
+                p.payoff = p.coin_1 + p.coin_2
 
 
 class Player(BasePlayer):

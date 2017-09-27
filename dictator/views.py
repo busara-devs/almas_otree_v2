@@ -24,13 +24,12 @@ class ShuffleWaitPage(WaitPage):
             self.subsession.get_players(),
             key=lambda player: player.participant.vars['total_correct']
         )
-
         if len(sorted_players) > 3:
-
             pairs = list(self.pair_up(sorted_players))
-
             median_sort = int(len(pairs) / 2)
-
+            print("Pairs", pairs)
+            choice = random.choice(["high", "low"])
+            print(choice)
             for pair in pairs:
                 if pairs.index(pair) > median_sort:
                     for player in pair:
@@ -39,8 +38,6 @@ class ShuffleWaitPage(WaitPage):
 
                 elif pairs.index(pair) == median_sort:
                     for player in pair:
-                        choice = random.choice(["high", "low"])
-                        choice = (choice,)[0]
                         player.participant.vars["rank"] = choice
                         player.rank = choice
                 else:
@@ -53,6 +50,7 @@ class ShuffleWaitPage(WaitPage):
         players_per_group = Constants.players_per_group
         for i in range(0, len(sorted_players), players_per_group):
             group_matrix.append(sorted_players[i: i + players_per_group])
+        print("Matrix", group_matrix)
         self.subsession.set_group_matrix(group_matrix)
 
 

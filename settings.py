@@ -131,9 +131,14 @@ ROOM_DEFAULTS = {}
 
 ROOMS = [
     {
-        'name': 'Almas',
-        'display_name': 'Almas Experiment',
-        'participant_label_file': 'rooms.txt',
+        'name': '2F',
+        'display_name': 'Room 2F',
+        'participant_label_file': 'control.txt',
+    },
+{
+        'name': '2G',
+        'display_name': 'Room 2G',
+        'participant_label_file': 'condition.txt',
     },
 ]
 

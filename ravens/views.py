@@ -14,12 +14,12 @@ class Introduction(Page):
 
 class PracticeOne(Page):
     form_model = models.Player
-    form_fields = ["practise_one"]
+    form_fields = ["p_1"]
 
 
 class PracticeTwo(Page):
     form_model = models.Player
-    form_fields = ["practise_two"]
+    form_fields = ["p_2"]
 
 
 class Wait(WaitPage):

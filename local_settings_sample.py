@@ -6,10 +6,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['public_goods', 'payment_info'],
     },
     {
-        'name': 'real_effort_dictator',
+        'name': 'dictator',
         'display': 'Real Effort Dictator',
         'num_demo_participants': 2,
-        'app_sequence': ['real_effort_dictator'],
+        'app_sequence': ['dictator'],
     },
 ]
 """

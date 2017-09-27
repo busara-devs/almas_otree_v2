@@ -21,7 +21,7 @@ want to transfer to the other participant.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'real_effort_dictator'
+    name_in_url = 'dictator'
     players_per_group = 2
     num_rounds = 1
     efficiency_factor = 3
@@ -48,8 +48,8 @@ class Group(BaseGroup):
             p1.participant.vars["carrying_payoff"] = points_p1
             p2.participant.vars["carrying_payoff"] = points_p2
 
-            p1.real_effort_dictator_points = points_p1
-            p2.real_effort_dictator_points = points_p2
+            p1.dictator_p = points_p1
+            p2.dictator_p = points_p2
 
         elif p1.participant.vars["rank"] == "low":
             p1.payoff = p1.keep
@@ -63,8 +63,8 @@ class Group(BaseGroup):
             p1.participant.vars["carrying_payoff"] = points_p1
             p2.participant.vars["carrying_payoff"] = points_p2
 
-            p1.real_effort_dictator_points = points_p1
-            p2.real_effort_dictator_points = points_p2
+            p1.dictator_p = points_p1
+            p2.dictator_p = points_p2
 
     def player_two_decides(self):
         p1 = self.get_player_by_id(1)
@@ -82,8 +82,8 @@ class Group(BaseGroup):
             p1.participant.vars["carrying_payoff"] = points_p1
             p2.participant.vars["carrying_payoff"] = points_p2
 
-            p1.real_effort_dictator_points = points_p1
-            p2.real_effort_dictator_points = points_p2
+            p1.dictator_p = points_p1
+            p2.dictator_p = points_p2
 
         elif p2.participant.vars["rank"] == "low":
             p2.payoff = p2.keep
@@ -98,8 +98,8 @@ class Group(BaseGroup):
             p1.participant.vars["carrying_payoff"] = points_p1
             p2.participant.vars["carrying_payoff"] = points_p2
 
-            p1.real_effort_dictator_points = points_p1
-            p2.real_effort_dictator_points = points_p2
+            p1.dictator_p = points_p1
+            p2.dictator_p = points_p2
 
     def set_payoffs(self):
         choice([self.player_one_decides, self.player_two_decides])()
@@ -107,6 +107,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     keep = models.IntegerField()
-    real_effort_dictator_endowment = models.IntegerField(initial=0)
-    real_effort_dictator_points = models.IntegerField(initial=0)
+    dictator_e = models.IntegerField(initial=0)
+    dictator_p = models.IntegerField(initial=0)
     rank = models.CharField()

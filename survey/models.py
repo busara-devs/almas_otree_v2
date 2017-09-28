@@ -146,7 +146,3 @@ class Player(BasePlayer):
                                                  "Other",
                                                  "Prefer not to say"
                                                  ])
-
-    crt_bat = models.PositiveIntegerField()
-    crt_widget = models.PositiveIntegerField()
-    crt_lake = models.PositiveIntegerField()

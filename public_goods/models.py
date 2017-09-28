@@ -84,7 +84,6 @@ class Player(BasePlayer):
         min=0, max=Constants.endowment,
         doc="""The amount contributed by the player""",
     )
-    question = models.IntegerField()
 
     guess = models.CharField(widget=widgets.RadioSelect(), choices=Constants.GUESS_CHOICES)
     guess_points = models.IntegerField(initial=0)

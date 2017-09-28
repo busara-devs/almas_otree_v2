@@ -40,4 +40,3 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     donated_amount = models.IntegerField()
     charity_allocated = models.CharField()
-    charity = models.CharField()

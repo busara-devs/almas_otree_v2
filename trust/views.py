@@ -39,7 +39,7 @@ class SendBack(Page):
     def is_displayed(self):
         if self.player.get_others_in_group()[0].sent_amount <= 0:
             self.player.sent_back_amount = 0
-        return self.player.get_others_in_group()[0].sent_amount > 0
+        return True
 
     def vars_for_template(self):
         amount_sent = self.player.get_others_in_group()[0].sent_amount

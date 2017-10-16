@@ -59,7 +59,7 @@ class Player(BasePlayer):
 
     p_destroy = models.IntegerField(min=0)
 
-    o_destroyed = models.IntegerField(min=0)
+    o_destroy = models.IntegerField(min=0)
 
     pc_destroyed = models.IntegerField(default=0)
 

@@ -128,11 +128,10 @@ class Group(BaseGroup):
         self.menu_b_points()
 
         for p in self.get_players():
-            if p.coin_1 and p.coin_2:
-                p.participant.vars["game_payoff"]["risk_game"] = p.coin_1 + p.coin_2
-                p.participant.vars["carrying_payoff"] += p.coin_1 + p.coin_2
-                p.risk_points = p.coin_1 + p.coin_2
-                p.payoff = p.coin_1 + p.coin_2
+            p.participant.vars["game_payoff"]["risk_game"] = p.coin_1 + p.coin_2
+            p.participant.vars["carrying_payoff"] += p.coin_1 + p.coin_2
+            p.risk_points = p.coin_1 + p.coin_2
+            p.payoff = p.coin_1 + p.coin_2
 
 
 class Player(BasePlayer):
@@ -158,8 +157,8 @@ class Player(BasePlayer):
 
     decision_1 = models.CharField(choices=CHOICE_ONE, widget=widgets.RadioSelect())
     rand_toss_1 = models.CharField()
-    coin_1 = models.IntegerField()
-    coin_2 = models.IntegerField()
+    coin_1 = models.IntegerField(default=0)
+    coin_2 = models.IntegerField(default=0)
     decision_2 = models.CharField(choices=CHOICE_TWO, widget=widgets.RadioSelect())
     rand_toss_2 = models.CharField()
     risk_points = models.IntegerField()

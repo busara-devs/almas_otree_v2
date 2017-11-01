@@ -72,10 +72,14 @@ class Player(BasePlayer):
             self.select_menu_c_d(choice)
 
     def set_payoff(self):
-
-        self.payoff = self.pay_tdy_ab
-        self.participant.vars["game_payoff"]["t_preference"] = self.pay_tdy_ab
+        # self.payoff = self.pay_tdy_ab
         self.t_p_points = self.pay_tdy_ab
+
+    # def set_payoff(self):
+    #
+    #     self.payoff = self.pay_tdy_ab
+    #     self.participant.vars["game_payoff"]["t_preference"] = self.pay_tdy_ab
+    #     self.t_p_points = self.pay_tdy_ab
 
     q1 = [
         ('840_now-0_3weeks', '840 tokens Today AND 0 tokens in 3 weeks'),

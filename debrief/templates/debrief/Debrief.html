@@ -1,0 +1,269 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block styles %}
+
+    <style>
+        #table-x tbody tr {
+            display: none;
+        }
+    </style>
+{% endblock %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel panel-heading">
+            <p>Please answer the following questions about the lab environment</p>
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <p><b>1. How would you describe the comfort of your chair?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q1 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q1_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>2. How would you describe the screen brightness?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q2 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q2_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>3. How would you describe the air in the room?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q3 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q3_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>4. How would you describe the temperature in the room?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q4 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q4_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>5. How would you describe the lighting in the room?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q5 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q5_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>6. How would you describe the space in the room?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q6 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q6_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>7. How would you describe the ambient noise in the room?</b></p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q7 with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q7_comment with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <p><b>8. What do you think this experiment is studying?</b></p>
+                <p style="margin-left: 18px;">please check all that apply</p>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% formfield player.q8_g with label="" %}
+                        {% formfield player.q8_sb with label="" %}
+                        {% formfield player.q8_rl with label="" %}
+                        {% formfield player.q8_gd with label="" %}
+                        {% formfield player.q8_rt with label="" %}
+                        {% formfield player.q8_an with label="" %}
+                        {% formfield player.q8_rs with label="" %}
+                        {% formfield player.q8_none with label="" %}
+                        {% formfield player.q8_other_c with label="" %}
+                    </div>
+                    <div class="col-md-9">
+                        {% formfield player.q8_other with label="" %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="con" id="q9">
+                <div class="container">
+                    <p><b>9. To what extent are you confident in your answer(s) to the previous question?</b></p>
+                    <p style="margin-left: 18px;">Please select one answer for each row.</p>
+                </div>
+                <br>
+
+                    <div class="table-responsive">
+                        {% include "../_templates/local_include/data.html" %}
+                    </div>
+            </div>
+            <hr id="9">
+            <div class="container" id="q10">
+                <p><b>10. When did you form an idea of what this experiment is studying?</b></p>
+                <p style="margin-left: 18px;">Please use NA if you selected None of the Above in 8.</p>
+                <br>
+                {% formfield player.q10 with label="" %}
+            </div>
+        </div>
+    </div>
+    <p><strong>Please click "Next" to continue</strong></p>
+    {% next_button %}
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- define a script -->
+    <script>
+        var app = {
+            radio_buttons: {},
+            selection: ["id_q8_g_1", "id_q8_sb_1", "id_q8_rl_1", "id_q8_gd_1", "id_q8_rt_1",
+                "id_q8_an_1", "id_q8_rs_1", "id_q8_none_1", "id_q8_other_c_1"],
+            init: function() {
+                var inputs = $("input[type=radio]");
+                for(var i = 0; i < inputs.length; i++) {
+                    var input = $(inputs[i]);
+                    var id = input.attr("id");
+                    if (app.selection.indexOf(id) > -1)
+                        app.radio_buttons[id]= false;
+                }
+                app.bindEvents();
+            },
+
+            toggleTr: function(tr_id, status) {
+
+                status ? $("#" + tr_id).show() : $("#" + tr_id).hide()
+            },
+
+            bindEvents: function() {
+                $("input[type=radio]").change(function(event) {
+                    //console.log(event);
+                });
+
+                $("input[type=radio]").click(function(event){
+                    var element = $(event.target);
+                    var id = element.attr("id");
+                    if (app.selection.indexOf(id) > -1) {
+                        app.radio_buttons[id] ? element.prop("checked", false) : element.prop("checked", true);
+                        app.radio_buttons[id] = !app.radio_buttons[id];
+
+                        if (id === "id_q8_none_1" && app.radio_buttons[id]) {
+
+                            app.selection.map(function (t) {
+                                if(t !== id) {
+                                    $("#" + t).prop("checked", false);
+                                    app.radio_buttons[t] = false;
+                                    app.toggleTr("0",app.radio_buttons[t]);
+                                    app.toggleTr("1",app.radio_buttons[t]);
+                                    app.toggleTr("2",app.radio_buttons[t]);
+                                    app.toggleTr("3",app.radio_buttons[t]);
+                                    app.toggleTr("4",app.radio_buttons[t]);
+                                    app.toggleTr("5",app.radio_buttons[t]);
+                                    app.toggleTr("6",app.radio_buttons[t]);
+                                    app.toggleTr("8",app.radio_buttons[t]);
+
+
+                                }
+
+                                app.radio_buttons["id_q8_other_c_1"] ? $("#q8_other").show() : $("#q8_other").hide();
+                            });
+                            $("#q9").hide();
+                            $("#q10").hide();
+                        } else {
+
+                            $("#id_q8_none_1").prop("checked", false);
+                            app.radio_buttons["id_q8_none_1"] = false;
+                            $("#q9").show();
+                            $("#q10").show();
+                        }
+                        if (id === "id_q8_g_1") {
+                            app.radio_buttons[id] ? $("#0").show() : $("#0").hide();
+                        }
+                        else if (id === "id_q8_sb_1") {
+                            app.radio_buttons[id] ? $("#1").show() : $("#1").hide();
+                        }
+                        else if (id === "id_q8_rl_1") {
+                            app.radio_buttons[id] ? $("#2").show() : $("#2").hide();
+                        }
+                        else if (id === "id_q8_gd_1") {
+                            app.radio_buttons[id] ? $("#3").show() : $("#3").hide();
+                        }
+                        else if (id === "id_q8_rt_1") {
+                            app.radio_buttons[id] ? $("#4").show() : $("#4").hide();
+                        }
+                        else if (id === "id_q8_an_1") {
+                            app.radio_buttons[id] ? $("#5").show() : $("#5").hide();
+                        }
+                        else if (id === "id_q8_rs_1") {
+                            app.radio_buttons[id] ? $("#6").show() : $("#6").hide();
+                        }
+                        else if (id === "id_q8_other_c_1") {
+                            app.radio_buttons[id] ? $("#8").show() : $("#8").hide();
+                            app.radio_buttons[id] ? $("#q8_other").show() : $("#q8_other").hide();
+                        }
+
+                    }
+                });
+            }
+        };
+
+        $(function () {
+
+            app.init();
+            $("#q8_other").hide();
+        });
+    </script>
+
+{% endblock %}
+
+{% block app_styles %}
+    <style type="text/css">
+        td {
+            text-align: center;
+        }
+    </style>
+{% endblock %}

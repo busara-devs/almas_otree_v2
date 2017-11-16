@@ -10,7 +10,6 @@
     </style>
 {% endblock %}
 {% block title %}
-    Survey
 {% endblock %}
 
 {% block content %}
@@ -112,6 +111,7 @@
             <hr>
             <div class="container">
                 <p><b>8. What do you think this experiment is studying?</b></p>
+                <p style="margin-left: 18px;">please check all that apply</p>
                 <br>
                 <div class="row">
                     <div class="col-md-3">
@@ -134,7 +134,7 @@
             <div class="con" id="q9">
                 <div class="container">
                     <p><b>9. To what extent are you confident in your answer(s) to the previous question?</b></p>
-                    <p>Please select one answer for each row.</p>
+                    <p style="margin-left: 18px;">Please select one answer for each row.</p>
                 </div>
                 <br>
 
@@ -145,6 +145,7 @@
             <hr id="9">
             <div class="container" id="q10">
                 <p><b>10. When did you form an idea of what this experiment is studying?</b></p>
+                <p style="margin-left: 18px;">Please use NA if you selected None of the Above in 8.</p>
                 <br>
                 {% formfield player.q10 with label="" %}
             </div>

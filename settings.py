@@ -121,7 +121,7 @@ SESSION_CONFIGS = [
         "display_name": "Almas Temperature Experiment",
         "num_demo_participants": 6,
         "app_sequence": ["production", "dictator", "risk_game", "t_preference", "trust", "public_goods",
-                         "ravens", "joy_O_D", "survey", "charity", "payment_info"],
+                         "ravens", "joy_O_D", "survey", "charity", "debrief", "payment_info"],
     },
 ]
 

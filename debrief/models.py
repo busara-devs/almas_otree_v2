@@ -17,8 +17,7 @@ class Constants(BaseConstants):
     name_in_url = 'debrief'
     players_per_group = None
     num_rounds = 1
-    CHOICES_Q9 = [('NA', ''),
-                  ('Not very confident', ''),
+    CHOICES_Q9 = [('Not very confident', ''),
                   ('Somewhat confident', ''),
                   ('Moderately confident', ''),
                   ('Very confident', ''),
@@ -105,5 +104,5 @@ class Player(BasePlayer):
                                     'Sometime during the experiment',
                                     'During the computer survey',
                                     'During this paper survey',
-                                    'Prefer not to answer',
-                                    'NA'], widget=widgets.RadioSelect())
+                                    'Prefer not to answer'
+                                    ], widget=widgets.RadioSelect())

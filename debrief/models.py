@@ -105,4 +105,4 @@ class Player(BasePlayer):
                                     'During the computer survey',
                                     'During this paper survey',
                                     'Prefer not to answer'
-                                    ], widget=widgets.RadioSelect())
+                                    ], widget=widgets.RadioSelect(), blank=True)

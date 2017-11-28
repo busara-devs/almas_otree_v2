@@ -92,9 +92,9 @@ class Player(BasePlayer):
 
     age = models.IntegerField(blank=True, null=True)
 
-    height = models.IntegerField(blank=True, null=True, min=120, max=220)
+    height = models.IntegerField(blank=True, null=True, min=48, max=96)
 
-    weight = models.IntegerField(blank=True, null=True, min=35, max=135)
+    weight = models.IntegerField(blank=True, null=True, min=70, max=500)
 
     gender = models.CharField(choices=['Male', 'Female', "Prefer not to say"],
                               widget=widgets.RadioSelect())
